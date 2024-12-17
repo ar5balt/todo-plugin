@@ -1,0 +1,53 @@
+{
+  "name": "todo-plugin",
+  "displayName": "todo-plugin",
+  "description": "Plugin for managing TODO notes with a sidebar.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:addNote"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+        {
+            "command": "todo.addNote",
+            "title": "Добавить TODO"
+        },
+        {
+          "command": "todo.deleteNote",
+          "title": "Удалить TODO"
+        },
+        {
+          "command": "todo.editNote",
+          "title": "Редактировать TODO"
+        }
+    ],
+    "views": {
+        "explorer": [
+            {
+                "id": "todoPanel",
+                "name": "TODO Заметки"
+            }
+        ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.16.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
